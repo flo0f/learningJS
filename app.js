@@ -1,16 +1,21 @@
-const isSuited = 100 - 10 > 90 - 5;
-console.log(isSuited);
+// Типы данных
+// Примитивные типы данных
+const age = 18; // числа
+const surname = 'Иванов'; // строки
+const isAdmin = true; // Булевые значение (true / false)
+const isMod = undefined;    // Не заданное значение
+let data;                   // Не заданное значение
+let data1 = null; // пустое значение
+const admin = Symbol('Admin'); // Уникальное неизменное значение
+const big = BigInt(9999999999999999999999999); // Работа с большими числами
 
-/*
-Более приоритетные операции выполняются в первую очередь
-посмотреть приоритетность можно https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table
-100 -(12) 10 >(10) 90 -(12) 5
-т.к. минус приоритетнее, то он выполнится в первую очередь
-*/
-
-// Оператор присваивания выполняется справа налево
-let b;
-let c;
-c = b = 100 + 50; // сначала "+", потом приваивается 150 в b и потом b в с
-console.log(c);
-console.log(b);
+let a = 5;
+let b = 5.6;
+console.log(typeof a); // number
+console.log(typeof b); // number
+console.log(typeof surname); // string
+console.log(typeof isAdmin); // boolean
+console.log(typeof isMod); // undefined
+console.log(typeof data); // undefined
+console.log(typeof data1); // object, хотя присваивалось null
+// типа null не существует в typeof
