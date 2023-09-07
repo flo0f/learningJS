@@ -1,19 +1,16 @@
-// Операторы присваивания
-let age = 18; // равно это оператор присваивания
-age += 2; // age = age + 2
-age -= 3; // age = age - 3
-age *= 2; // age = age * 2
-age /= 2; // age = age / 2
+const isSuited = 100 - 10 > 90 - 5;
+console.log(isSuited);
 
-age++; // age = age + 1
-age--; // age = age - 1
+/*
+Более приоритетные операции выполняются в первую очередь
+посмотреть приоритетность можно https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table
+100 -(12) 10 >(10) 90 -(12) 5
+т.к. минус приоритетнее, то он выполнится в первую очередь
+*/
 
-console.log(age);
-
-// Операторы сравнения
-const driverLicense = 18;
-console.log(age > driverLicense); // левое больше?
-console.log(age >= driverLicense); // левое больше или равно?
-console.log(age < driverLicense); // левое меньше?
-console.log(age <= driverLicense); // левое меньше или равно? 
-console.log(age == driverLicense); // равно ли левое правому?
+// Оператор присваивания выполняется справа налево
+let b;
+let c;
+c = b = 100 + 50; // сначала "+", потом приваивается 150 в b и потом b в с
+console.log(c);
+console.log(b);
