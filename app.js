@@ -1,21 +1,26 @@
-// Типы данных
-// Примитивные типы данных
-const age = 18; // числа
-const surname = 'Иванов'; // строки
-const isAdmin = true; // Булевые значение (true / false)
-const isMod = undefined;    // Не заданное значение
-let data;                   // Не заданное значение
-let data1 = null; // пустое значение
-const admin = Symbol('Admin'); // Уникальное неизменное значение
-const big = BigInt(9999999999999999999999999); // Работа с большими числами
+/*
+Ваша часовая ставка 80$ и вы готовы работать не
+более 5 часов в день 5 дней в неделю (кроме выходных).
+К вам приходит заказчик и предлагает заказ на 40
+часов работы.
+Сейчас понедельник.
+Вы должны уехать через 11 дней.
+Выведете в консоль:
+- Boolean переменную успеете ли вы взяться за работу
+- Сколько вы за неё попросите?
+*/
+// Данные
+const timePerDay = 5;
+const daysPerWeek = 5;
+const orderTime = 40;
+const timeLeft = 11;
+const salaryPerHour = 80;
 
-let a = 5;
-let b = 5.6;
-console.log(typeof a); // number
-console.log(typeof b); // number
-console.log(typeof surname); // string
-console.log(typeof isAdmin); // boolean
-console.log(typeof isMod); // undefined
-console.log(typeof data); // undefined
-console.log(typeof data1); // object, хотя присваивалось null
-// типа null не существует в typeof
+// Расчеты
+const orderCost = orderTime * salaryPerHour;
+const workDays = timeLeft - 2;
+const hoursCanWork = workDays * timePerDay;
+
+// Вывод в консоль
+console.log('Смогу ли я работать' + ' ' + (orderTime <= hoursCanWork));
+console.log('Цена заказа' + ' ' + orderCost + 'usd');
