@@ -1,10 +1,12 @@
-// false из других типов данных
-console.log(Boolean(0)); // false
-console.log(Boolean('')); // false
-let a // a = undefined
-console.log(Boolean(a)); // false
-console.log(Boolean(undefined)); // false
-console.log(Boolean(null)); // false
+// IF ELSE
+const money = 51;
 
-console.log(Boolean(Number('sx'))); // Сначала выполняется Number, получаем NaN т.к.
-                                    // sx не число, поэтому Boolean(NaN) = false
+console.log('Хватает денег?');
+
+if (money > 50) {
+    console.log('Может купить продукт');
+} else if (money > 5) {
+    console.log('Можнь купить бюджетный вариант');
+} else {
+    console.log('Не может позволить');
+}
