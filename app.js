@@ -1,51 +1,43 @@
-// switch statement
-const role = 'manager';
+// Тернарные операторы
+const bmwX3Price = 100000;
+const budget = 20000;
+const fordFocusPrice = 10000;
 
-if (role === 'manager') {
-    console.log('Менеджер');
-} else if (role === 'admin') {
-    console.log('Админ');
-} else if (role === 'seo') {
-    console.log('СЕО');
+let message;
+
+if (budget > bmwX3Price) {
+    message = 'BMW';
 } else {
-    console.log('Неизвестная роль');
+    message = 'Велик';
 }
-// реализация такого же блока с помощью switch statement
-switch (role) {
-    case 'manager': // role === 'manager'
-        console.log('Менеджер');
-        break;
-    case 'admin': // role === 'admin'
-        console.log('Админ');
-        break;
-    case 'seo': // role === 'seo'
-        console.log('СЕО');
-        break;
-    default: // else {...}
-        console.log('Неизвестная роль');
+                                        // Если переменную message не объявить вне условия
+console.log(`Я хочу купить ${message}`); // выдаст ошибку т.к. область видимости message
+                                        // только внутри блока if-else if-else
+// Простой пример тернарного оператора
+10 > 0 ? console.log('Больше нуля') : console.log('Меньше нуля');
+/*
+Соответствует записи
+if (10 > 0) {
+    console.log('Больше нуля');
+} else {
+    console.log('Меньше нуля');
 }
-// первое или второе, то ...
-switch (role) {
-    case 'manager':
-    case 'admin':
-        console.log('Не руководитель');     // Если role === 'admin' ИЛИ 'manager'
-        break;                              // То 'не руководитель'
-    case 'seo':                             // Блок админа/менеджера не выполнится, если
-        console.log('Руководитель');        // role !== 'admin' ИЛИ 'manager'
-        break;                              // блок сео выполнится, только если
-    default:                                // role === 'seo'
-        console.log('Неизвестная роль');
+*/
+// Можно присвоить это выражение в переменную
+const str = 10 > 0 ? 'Больше нуля' : 'Меньше нуля';
+console.log(str);
+// т.к. эта запись является выражением, то можно ее напрямую встроить в шаблонную строку
+// на примере первой записи if-else
+console.log(`Я хочу купить ${budget > bmwX3Price ? 'BMW X3' : 'Велосипед'}`);
+// Можно написать несколько условий внутри одного выражения
+console.log(`Я хочу купить ${budget > bmwX3Price ? 'BMW X3' : budget > fordFocusPrice ? 'Ford Focus' : 'ВелосипедSTELS'}`);
+/*
+Равносильно записи
+if (budget > bmwX3Price) {
+    console.log('BMW X3');
+} else if (budget > fordFocusPrice) {
+    console.log('Ford Focus');
+} else {
+    console.log('ВелосипедSTELS);
 }
-
-const num = 1;
-
-switch (true) {
-    case num > 0: // операторы сравнения выдают булевое значение, следовательно эта запись
-        console.log('Положительный');   // соответствует true === num > 0
-        break;
-    case num < 0: // true === num < 0
-        console.log('Отрицательный');
-        break;
-    default: // в любом другом случае будет выполняться этот блок
-        console.log('Ноль!')
-}
+*/
