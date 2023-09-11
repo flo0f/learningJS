@@ -1,43 +1,32 @@
-// Тернарные операторы
-const bmwX3Price = 100000;
-const budget = 20000;
-const fordFocusPrice = 10000;
-
-let message;
-
-if (budget > bmwX3Price) {
-    message = 'BMW';
-} else {
-    message = 'Велик';
-}
-                                        // Если переменную message не объявить вне условия
-console.log(`Я хочу купить ${message}`); // выдаст ошибку т.к. область видимости message
-                                        // только внутри блока if-else if-else
-// Простой пример тернарного оператора
-10 > 0 ? console.log('Больше нуля') : console.log('Меньше нуля');
 /*
-Соответствует записи
-if (10 > 0) {
-    console.log('Больше нуля');
+	Методом prompt получите ответ пользователя
+	на вопрос "Сколько будет 7 + или - 15?". Если ответ верен
+	выведите в консоле "Успех", если нет - "Вы робот!",
+	а если он введёт "Я не робот", то тоже "Успех".
+*/
+const answer = prompt('Сколько будет 7 + или - 15?');
+/*
+if (answer === '-8') {
+    console.log('Успех');
+} else if (answer === '22') {
+    console.log('Успех');
+} else if (answer === 'Я не робот') {
+    console.log('Вы взломали систему!');
 } else {
-    console.log('Меньше нуля');
+    console.log('Вы робот!');
 }
 */
-// Можно присвоить это выражение в переменную
-const str = 10 > 0 ? 'Больше нуля' : 'Меньше нуля';
-console.log(str);
-// т.к. эта запись является выражением, то можно ее напрямую встроить в шаблонную строку
-// на примере первой записи if-else
-console.log(`Я хочу купить ${budget > bmwX3Price ? 'BMW X3' : 'Велосипед'}`);
-// Можно написать несколько условий внутри одного выражения
-console.log(`Я хочу купить ${budget > bmwX3Price ? 'BMW X3' : budget > fordFocusPrice ? 'Ford Focus' : 'ВелосипедSTELS'}`);
+// Вариант с тернарным оператором
 /*
-Равносильно записи
-if (budget > bmwX3Price) {
-    console.log('BMW X3');
-} else if (budget > fordFocusPrice) {
-    console.log('Ford Focus');
-} else {
-    console.log('ВелосипедSTELS);
-}
+console.log(answer === '22' ? 'Успех' : answer === '-8' ? 'Успех' : answer === 'Я не робот' ? 'Система взломана' : 'Вы робот!');
 */
+// Вариант через switch case
+switch (true) {
+    case answer === '22':
+    case answer === '-8':
+    case answer === 'Я не робот':
+        console.log('Успех');
+        break;
+    default:
+        console.log('Вы робот!');
+}
