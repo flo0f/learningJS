@@ -1,21 +1,51 @@
-const secretNum = '7';
-// == не строгое равенство, проверка по значению
-if (secretNum == 7) {
-    console.log('Угадал');
-} else {
-    console.log('Провал');
-} // Тут получим угадал т.к. в строке значение 7 и в числе значение 7
+// switch statement
+const role = 'manager';
 
-// === строгое равенство, проверка по типу и значению
-if (secretNum === 7) {
-    console.log('Строго угадал');
+if (role === 'manager') {
+    console.log('Менеджер');
+} else if (role === 'admin') {
+    console.log('Админ');
+} else if (role === 'seo') {
+    console.log('СЕО');
 } else {
-    console.log('Строго не угадал');
-} // тут получаем строго не угадал т.к. по значению совпадает а по типу - нет string и number
+    console.log('Неизвестная роль');
+}
+// реализация такого же блока с помощью switch statement
+switch (role) {
+    case 'manager': // role === 'manager'
+        console.log('Менеджер');
+        break;
+    case 'admin': // role === 'admin'
+        console.log('Админ');
+        break;
+    case 'seo': // role === 'seo'
+        console.log('СЕО');
+        break;
+    default: // else {...}
+        console.log('Неизвестная роль');
+}
+// первое или второе, то ...
+switch (role) {
+    case 'manager':
+    case 'admin':
+        console.log('Не руководитель');     // Если role === 'admin' ИЛИ 'manager'
+        break;                              // То 'не руководитель'
+    case 'seo':                             // Блок админа/менеджера не выполнится, если
+        console.log('Руководитель');        // role !== 'admin' ИЛИ 'manager'
+        break;                              // блок сео выполнится, только если
+    default:                                // role === 'seo'
+        console.log('Неизвестная роль');
+}
 
-// Лучше всегда искользовать строгое равенство и явно приводить значения к нужному типу
-if (Number(secretNum) === 7) {
-    console.log('Строго угадал при явном приведении');
-} else {
-    console.log('Строго не угадал при явном приведении');
+const num = 1;
+
+switch (true) {
+    case num > 0: // операторы сравнения выдают булевое значение, следовательно эта запись
+        console.log('Положительный');   // соответствует true === num > 0
+        break;
+    case num < 0: // true === num < 0
+        console.log('Отрицательный');
+        break;
+    default: // в любом другом случае будет выполняться этот блок
+        console.log('Ноль!')
 }
