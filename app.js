@@ -1,16 +1,24 @@
-console.log('Вася' || 'Олег'); // при ИЛИ всегда выводится первое значение если оно равно true
-console.log('' || 'Олег'); // Boolean('') === false, соответственно выводим 'Олег', т.к. эта строка не пустая
-console.log('Вася' || false);
+// оператор нулевого слияния или nullish coalesing
+let username;
+// '||' считает username неопределенным значением
+console.log(username || 'Default Username');
+// '??' считает любое значение определенным, кроме null и undefined
+console.log(typeof username)
+console.log(username ?? 'Default Username');
+// оператор '??' возвращает первое значение если он не null/undefined, иначе второе значение
 
+let firstName;
+let lastName;
+let nickName = 'supercoder';
 
-console.log('Вася' && 'Олег'); // выведет второе значение, если первое === true
-console.log(false && 'Олег'); // выведет false т.к. проверка остановлена и выведено первое значение
-console.log('' && false); // Boolean('') === false, выводится пустая строка, а не false т.е. проверка остановлена
+// показывает первое значение, которое определено
+console.log(firstName ?? lastName ?? nickName ?? 'неизвестный');
 
-let a;
-const username = a || 'Петя';
-console.log(username); // если значение А пустое, то выведется Петя
+/*
+Оператор || не различает false, 0, '' и null/undefined
+для него они все одинаковы т.к. при преобразовании в Boolean() все возвращают false,
+НО оператор ?? может отличить пустое значение от ложного
 
-const isAdmin = true;
-const fileName = isAdmin && 'Музыка.mp4'; // имя файла может вернуться только если пользователь АДМИН
-console.log(fileName);
+т.е. || возвращает первое ИСТИННОЕ значение
+?? возвращает первое ОПРЕДЕЛЕННОЕ значение
+*/
