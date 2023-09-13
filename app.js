@@ -1,24 +1,23 @@
-// оператор нулевого слияния или nullish coalesing
-let username;
-// '||' считает username неопределенным значением
-console.log(username || 'Default Username');
-// '??' считает любое значение определенным, кроме null и undefined
-console.log(typeof username)
-console.log(username ?? 'Default Username');
-// оператор '??' возвращает первое значение если он не null/undefined, иначе второе значение
-
-let firstName;
-let lastName;
-let nickName = 'supercoder';
-
-// показывает первое значение, которое определено
-console.log(firstName ?? lastName ?? nickName ?? 'неизвестный');
-
 /*
-Оператор || не различает false, 0, '' и null/undefined
-для него они все одинаковы т.к. при преобразовании в Boolean() все возвращают false,
-НО оператор ?? может отличить пустое значение от ложного
-
-т.е. || возвращает первое ИСТИННОЕ значение
-?? возвращает первое ОПРЕДЕЛЕННОЕ значение
+	Пользователь хочет приобрести игру в магазине
+	Он может это сделать отлько если:
+	- Eго баланс больше 1000 (balance) 
+	или число бонусов больше 100 (bonusBalance)
+	- Он не забанен (isBanned)
+	- Игра не кулена (isExist)
+	- Игра в продаже (isSelling)
+	Напишите условие для покупки и выведите в консоль
+	результат
 */
+const user = 'gamer1337';
+const balance = 1200;
+const bonusBalance = 90;
+const isBanned = false;
+
+const isBought = false;
+const isSelling = true;
+
+const canBuy = (balance > 1000 || bonusBalance > 100) && !isBanned && !isBought && isSelling;
+
+console.log(`Пользователь ${user} сможет купить игру?
+Ответ: ${canBuy ? 'ДА' : 'НЕТ'}`);
