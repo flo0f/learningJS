@@ -1,17 +1,16 @@
-/* переписать функцию в стрелочную */
-
 function toPower(num, power) {
 	const res = num ** power;
 	return res;
 }
 console.log(toPower(2, 3));
-/*
-const arrowToPower = (num, power) => {
-	const res = num ** power;
-	return res;
+// простейший способ задать значение по умолчанию
+function toPow(num, power) {
+	const powCheck = power ?? 2; // если power не передали в качестве параметра, то его значение undefined
+	return num ** powCheck; // т.к. значение undefined, то оператор ?? записывает второе значение в переменную
 }
-console.log(arrowToPower(2, 3));
-*/
-
-const arrowToPower = (num, power) => num ** power;
-console.log(arrowToPower(2, 3));
+console.log(toPow(2));
+// правильный способ задания значений по умолчанию
+function pow(num, power = 2) {
+	return num ** power;
+}
+console.log(pow(2));
