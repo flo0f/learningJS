@@ -1,18 +1,15 @@
-/*
-function - ключевое слово инициализации функции
-после function идет название функции
-в скобках после названия - аргументы функции
-return - возвращает значение из функции
-*/
-let myName = 'anton'
-function logName(name, surname) {
-	console.log(`Мое имя ${name} ${surname}`);
+function powerOfTwo(num) {
+	return num * num;
 }
-logName(myName, 'pupkin'); // вызов функции
+console.log(powerOfTwo(5));
 
-function deposit(depositInUSD, month, rate) {
-	return depositInUSD * (1 + rate / 12) ** month;
+const poft = function (num) {
+	return num * num;
 }
+console.log(poft(6));
 
-const example1 = deposit(5000, 12, 0.20);
-console.log(example1);
+// функции можно использовать до их объявления
+console.log(powerOfThree(4));
+function powerOfThree(num) {
+	return num ** 3;
+}
