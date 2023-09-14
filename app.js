@@ -1,15 +1,36 @@
+// обычная запись функции
 function powerOfTwo(num) {
-	return num * num;
+	return num ** 2;
 }
+
 console.log(powerOfTwo(5));
 
-const poft = function (num) {
-	return num * num;
+// запись стрелочной функции
+const poft = (num) => num ** 2; // то, что после стрелки и является return'ом
+console.log(poft(5));
+// можно упростить запись опустив скобки
+const poff = num => num ** 4;
+console.log(poff(2));
+// если нужно несколько строк в стрелочной функции, то добавляются {} и return
+const myNameIs = name => {
+	console.log('Его имя: ');
+	return name;
 }
-console.log(poft(6));
+console.log(myNameIs('Олег'));
+// что бы передать два аргумента, скобки обязательны
+const powToPar = (num, i) => `Число ${num} в степени ${i} будет равно: ${num ** i}`;
+console.log(powToPar(5,3));
 
-// функции можно использовать до их объявления
-console.log(powerOfThree(4));
-function powerOfThree(num) {
-	return num ** 3;
-}
+/*
+Отличия: 
+-обычные функции можно использовать до их объявления (всплывают)
+контекст ДА
+
+-анонимные функции используются исключительно после объявления (не всплывают)
+контекст ДА
+
+-стрелочные функции так же используются исключительно после объявления (не всплывают)
+контекст НЕТ
+
+Что такое контекст будет объяснено в следующих уроках
+*/
