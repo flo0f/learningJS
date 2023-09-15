@@ -1,21 +1,19 @@
-function canAccessWebsite(age) {
-	if (age < 18) {
-		return false;
-	}
-	return true;
-}
-// т.к. функция обязательно что-то возвращает, то после возврата значения она останавливает работу
-// из-за этого в блоке условия IF можно опустить часть ELSE
-// если выполнится условие, то вернется false и будет произведен выход из функции
-console.log(canAccessWebsite(18));
+const KG_IN_USD = 7;
+const KM_IN_USD = 5;
 
-const canAccessWebsite2 = age => (age < 18) ? 'Не допущен' : 'Допущен';
-console.log(canAccessWebsite2(19));
-
-const canAccessWebsite3 = function (age) {
-	if (age < 18) {
-		return false;
-	}
-	return true;
+function calculateW(weigth) {
+	return weigth * KG_IN_USD;
 }
-console.log(canAccessWebsite3(17));
+
+function calculateKm(distance) {
+	return distance * KM_IN_USD;
+}
+
+function getExchangePrice(present1, present2, distance) {
+	const price1 = calculateW(present1);
+	const price2 = calculateW(present2);
+	const distancePrice = calculateKm(distance);
+	return price1 + price2 + distancePrice;
+}
+
+console.log(getExchangePrice(1, 2, 10));
