@@ -1,19 +1,31 @@
-const KG_IN_USD = 7;
-const KM_IN_USD = 5;
-
-function calculateW(weigth) {
-	return weigth * KG_IN_USD;
+/*
+	Пользователь:
+	- Возраст
+	- Наличие работы
+	- Деньги
+	Нужно проверить может ли он купить новый MacBook за 2000$?
+	Он может брать не только свои деньги, но и взять кредит.
+	Ему дадут 500$, только если ему больше 24-х лет и он
+	имеет работу, 100$ если ему просто больше 24-х лет и 0 в
+	ином случае.
+	Напишите функцию, которая принимает данные пользователя
+	и товара и возвращает true или false;
+*/
+function possibleCredit(age, work) {
+	if (age >= 24 && work === 1) {
+		return 500;
+	} else if (age >= 24) {
+		return 100;
+	}
+	return 0;
 }
 
-function calculateKm(distance) {
-	return distance * KM_IN_USD;
+function canBuyMac(age, work, money) {
+	money += possibleCredit(age, work);
+	if (money >= 2000) {
+		return `Yes he can, money left: ${money - 2000}$`;
+	}
+	return `Not enough money, your balance: ${money}`;
 }
 
-function getExchangePrice(present1, present2, distance) {
-	const price1 = calculateW(present1);
-	const price2 = calculateW(present2);
-	const distancePrice = calculateKm(distance);
-	return price1 + price2 + distancePrice;
-}
-
-console.log(getExchangePrice(1, 2, 10));
+console.log(canBuyMac(24, 1, 1600));
