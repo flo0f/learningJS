@@ -1,42 +1,31 @@
-// знакомство с массивами
-const role1 = 'admin';
-const role2 = 'user';
-const role3 = 'super user';
-// массив обозначается с помощью []
-const roles = ['admin', 'user', 'super user']
+// управление элементами массива 
 
-// массив может содержать несколько типов данных
-const userInfo = ['Леша', 25];
-console.log(roles);
+// изменение  элемента
+const users = ['Аня', 'Вика', 'Катя'];
+console.log(users);
+users[2] = 'Кристина';
+console.log(users);
 
-// индексы значений в массиве начинаются с нуля
-// получить нужное значение можно по его индексу
-console.log(roles[0]);
+// добавление элемента
 
-// если обратиться к несуществующему индексу, то будет undefined т.к. его нет
-console.log(roles[3]);
+users[3] = 'Олег';  // такое лучше не использовать
+console.log(users);
+// метод .push() добавляет элемент из () в массив в конец и возвращает длину получившегося массива
+const answer = users.push('Никита');
+console.log(users);
+console.log(answer);
+// метод .unshift() добавляет элемент из () в массив в НАЧАЛО и возвращает длину получившегося массива
+const ans = users.unshift('Вася');
+console.log(users);
+console.log(ans);
 
-// с помощью метода .length можно получить длинну массива
-console.log(roles.length);
-// что бы получить последний элемент массива, нужно .length - 1
-console.log(roles[roles.length - 1]);
+// удаление элемента
 
-// обратиться к элементу так же можно при помощи метода .at, но он используется редко
-console.log(roles.at(0)); 
-// преимущество .at в наличии отрицательных индексов, например вот получение последнего элемента массива
-console.log(roles.at(-1));
-
-// внутри массива можно использовать тернарные операторы и математические выражения
-const usersAge = [2040 - 2022, 20 - '6', 10 > 5 ? 'Десять больше' : 'Десять меньше'];
-console.log(usersAge);
-
-// другой вариант записи массива
-const userNames = new Array('Вася', 'Петя', 'Катя');
-console.log(userNames);
-
-function square(el) {
-	return el * el;
-}
-
-console.log(square(5));
-console.log(square([1, 2, 3]));
+// .pop() удаляет последний элемент в массиве и возвращает его
+const a = users.pop();
+console.log(users);
+console.log(a);
+// .shift() удаляет первый элемент в массиве и возвращает его
+const a2 = users.shift();
+console.log(users);
+console.log(a2);
