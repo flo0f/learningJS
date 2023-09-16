@@ -1,31 +1,42 @@
-/*
-	Пользователь:
-	- Возраст
-	- Наличие работы
-	- Деньги
-	Нужно проверить может ли он купить новый MacBook за 2000$?
-	Он может брать не только свои деньги, но и взять кредит.
-	Ему дадут 500$, только если ему больше 24-х лет и он
-	имеет работу, 100$ если ему просто больше 24-х лет и 0 в
-	ином случае.
-	Напишите функцию, которая принимает данные пользователя
-	и товара и возвращает true или false;
-*/
-function possibleCredit(age, work) {
-	if (age >= 24 && work === 1) {
-		return 500;
-	} else if (age >= 24) {
-		return 100;
-	}
-	return 0;
+// знакомство с массивами
+const role1 = 'admin';
+const role2 = 'user';
+const role3 = 'super user';
+// массив обозначается с помощью []
+const roles = ['admin', 'user', 'super user']
+
+// массив может содержать несколько типов данных
+const userInfo = ['Леша', 25];
+console.log(roles);
+
+// индексы значений в массиве начинаются с нуля
+// получить нужное значение можно по его индексу
+console.log(roles[0]);
+
+// если обратиться к несуществующему индексу, то будет undefined т.к. его нет
+console.log(roles[3]);
+
+// с помощью метода .length можно получить длинну массива
+console.log(roles.length);
+// что бы получить последний элемент массива, нужно .length - 1
+console.log(roles[roles.length - 1]);
+
+// обратиться к элементу так же можно при помощи метода .at, но он используется редко
+console.log(roles.at(0)); 
+// преимущество .at в наличии отрицательных индексов, например вот получение последнего элемента массива
+console.log(roles.at(-1));
+
+// внутри массива можно использовать тернарные операторы и математические выражения
+const usersAge = [2040 - 2022, 20 - '6', 10 > 5 ? 'Десять больше' : 'Десять меньше'];
+console.log(usersAge);
+
+// другой вариант записи массива
+const userNames = new Array('Вася', 'Петя', 'Катя');
+console.log(userNames);
+
+function square(el) {
+	return el * el;
 }
 
-function canBuyMac(age, work, money) {
-	money += possibleCredit(age, work);
-	if (money >= 2000) {
-		return `Yes he can, money left: ${money - 2000}$`;
-	}
-	return `Not enough money, your balance: ${money}`;
-}
-
-console.log(canBuyMac(24, 1, 1600));
+console.log(square(5));
+console.log(square([1, 2, 3]));
