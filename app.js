@@ -1,47 +1,49 @@
+// один из фундаментальных принципов программирования - принцип DRY
+// DRY - Do not Repeat Yourself
+const tasks = ['Задача 1'];
 /*
-    Дан список задач
-    const tasks = ['Задача 1'];
-    Сделать функции:
-    - Добавление задачи в конец
-    - Удаление задачи по названию
-    - Перенос задачи в начало списка по названию
-    Всегда меняем исходный массив
+БЫЛО
+
+function Add(task) {
+    tasks.push(task);
+}
+
+function Remove(task) {
+    const index = task.indexOf(task);
+    if (index === -1) {
+        return;
+    }
+    tasks.splice(index, 1);
+}
+
+function Prioritize(task) {
+    const index = tasks.indexOf(task);
+    if (index === -1) {
+        return;
+    }
+    const oldTask = tasks[index];
+    tasks.splice(index, 1);
+    tasks.unshift(oldTask);
+}
 */
 
-const tasks = ['Задача 1'];
-
-const addTask = (mas, taskName) => mas.push(taskName);
-const delTask = (mas, taskName) => {
-    if (mas.includes(taskName)) {
-        mas.splice(mas.indexOf(taskName), 1);
-        return `Элемент "${taskName}" успешно удален!`;
-    } else {
-        return `Элемента с именем "${taskName}" не существует!`;
-    }
+// СТАЛО
+function Add(task) {
+    tasks.push(task);
 }
-const moveTask = (mas, taskName) => {
-    if (mas.includes(taskName)) {
-        const element = mas.splice(mas.indexOf(taskName), 1);
-        mas.unshift(element[0]);
-        return `Элемент "${taskName}" успешно перенесён!`;
-    } else {
-        return `Элемента с именем "${taskName}" не существует!`;
+
+function Remove(task) {
+    const index = task.indexOf(task);
+    if (index === -1) {
+        return;
     }
+    return tasks.splice(index, 1);
 }
-addTask(tasks, 'Задача 2');
-console.log(tasks);
-addTask(tasks, 'Задача 3');
-console.log(tasks);
-addTask(tasks, 'Задача 4');
-console.log(tasks);
 
-console.log(delTask(tasks, 'Задача 1'));
-console.log(tasks);
-
-console.log(moveTask(tasks, 'Задача 4'));
-console.log(tasks);
-
-console.log(moveTask(tasks, 'Задача 7-8'));
-console.log(tasks);
-
-
+function Prioritize(task) {
+    const result = Remove(task);
+    if (!result) {
+        return;
+    }
+    tasks.unshift(result[0]);
+}
