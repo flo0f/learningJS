@@ -1,31 +1,27 @@
-// управление элементами массива 
+// поиск элемента 
+const roles = ['user', 'admin', 'manager', 'admin'];
 
-// изменение  элемента
-const users = ['Аня', 'Вика', 'Катя'];
-console.log(users);
-users[2] = 'Кристина';
-console.log(users);
+// получение индекса элемента массива .indexOf
+// indexOf возвращает индекс запрашиваемого элемента
+const elIndex = roles.indexOf('admin');
+console.log(elIndex);
+// .indexOf() ищет первое вхождение элемента в массив
+// т.к. в массиве roles два элемента 'admin', то при проверке слева направо будет выдан индекс 1
 
-// добавление элемента
+// если запрашиваемого значения не существует, то получим -1
+const unknownIndex = roles.indexOf('moderator');
+console.log(unknownIndex); // => -1
 
-users[3] = 'Олег';  // такое лучше не использовать
-console.log(users);
-// метод .push() добавляет элемент из () в массив в конец и возвращает длину получившегося массива
-const answer = users.push('Никита');
-console.log(users);
-console.log(answer);
-// метод .unshift() добавляет элемент из () в массив в НАЧАЛО и возвращает длину получившегося массива
-const ans = users.unshift('Вася');
-console.log(users);
-console.log(ans);
+if (roles.indexOf('admin') >= 0) {
+    console.log('Доступ есть!');
+}
 
-// удаление элемента
+// если .indexOf() возвращает индекс первого вхождения элемента в массив
+// то .includes() возвращает true или false в зависимости от наличия элемента в массиве
+console.log(roles.includes('admin')); // => true
+console.log(roles.includes('moderator')); // => false
 
-// .pop() удаляет последний элемент в массиве и возвращает его
-const a = users.pop();
-console.log(users);
-console.log(a);
-// .shift() удаляет первый элемент в массиве и возвращает его
-const a2 = users.shift();
-console.log(users);
-console.log(a2);
+// для проверки наличия элемента в массиве лучше использовать такую запись
+if (roles.includes('admin')) {
+    console.log('Доступ есть!!');
+}
