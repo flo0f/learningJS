@@ -1,49 +1,13 @@
-// один из фундаментальных принципов программирования - принцип DRY
-// DRY - Do not Repeat Yourself
-const tasks = ['Задача 1'];
-/*
-БЫЛО
+const userData = ['Влад', 19, 'Зажопинск'];
+// обычный способ 
+// const userName = userData[0];
+// const age = userData[1];
+// const city = userData[2];
 
-function Add(task) {
-    tasks.push(task);
-}
-
-function Remove(task) {
-    const index = task.indexOf(task);
-    if (index === -1) {
-        return;
-    }
-    tasks.splice(index, 1);
-}
-
-function Prioritize(task) {
-    const index = tasks.indexOf(task);
-    if (index === -1) {
-        return;
-    }
-    const oldTask = tasks[index];
-    tasks.splice(index, 1);
-    tasks.unshift(oldTask);
-}
-*/
-
-// СТАЛО
-function Add(task) {
-    tasks.push(task);
-}
-
-function Remove(task) {
-    const index = task.indexOf(task);
-    if (index === -1) {
-        return;
-    }
-    return tasks.splice(index, 1);
-}
-
-function Prioritize(task) {
-    const result = Remove(task);
-    if (!result) {
-        return;
-    }
-    tasks.unshift(result[0]);
-}
+// деструктуризация
+// в [] указываются имена переменных, которым будут присвоены соответствующие элементы из массива после "равно"
+const [userName, age, city] = userData;
+console.log(userName, age, city);
+// если необходимы только первый и третий элемент массива, то на месте неиспользуемого элемента можно поставить _
+const [userName2, _, city2] = userData;
+console.log(userName2, city2);
