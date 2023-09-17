@@ -1,13 +1,7 @@
-const userData = ['Влад', 19, 'Зажопинск'];
-// обычный способ 
-// const userName = userData[0];
-// const age = userData[1];
-// const city = userData[2];
+// rest оператор = ...
 
-// деструктуризация
-// в [] указываются имена переменных, которым будут присвоены соответствующие элементы из массива после "равно"
-const [userName, age, city] = userData;
-console.log(userName, age, city);
-// если необходимы только первый и третий элемент массива, то на месте неиспользуемого элемента можно поставить _
-const [userName2, _, city2] = userData;
-console.log(userName2, city2);
+const data = [1, 2, 3, 4 ,5 ,6];
+const [one, two, ...others] = data;
+console.log(one, two, others);
+// rest оператор нельзя использовать нигде кроме последней переменной
+// const [one, ...others, six] = data; => ошибка
