@@ -1,26 +1,20 @@
-// вывод всех элементов цикла
-const tasks = ['Задача 1', 'Задача 2', 'Задача 3', 'Задача 4', 'Задача 5'];
-for(let i = 0; i < tasks.length; i++) {
-    console.log(tasks[i]);
-}
-console.log('========================');
-// управление поведением цикла с помощью break и continue
+/*
+    Задача вывести в консоль строку "Я люблю JS !" из массива,
+    проходя циклом в обратном порядке, не используя метод reverse.
+    const arr = ['!', 'JS', 'люблю', 'Я'];
+*/
+const arr = ['!', 'JS', 'люблю', 'Я'];
 
-// continue - останавливает выполнение блока цикла и переходит к следующей итерации
-for(let i = 0; i < tasks.length; i++) {
-    if (tasks[i] === 'Задача 2') {
-        console.log(`${tasks[i]} пропущена, цикл продолжается без её вывода`);
-        continue;
-    }
-    console.log(tasks[i]);
+// реализация 1
+const resArr1 = [];
+for(let i = -1; i >= -arr.length; i--) {
+    resArr1.push(arr.at(i));
 }
-console.log('========================');
+console.log(resArr1.join(' '));
 
-// break - принудительно останавливает цикл и выходит из него
-for(let i = 0; i < tasks.length; i++) {
-    if (tasks[i] === 'Задача 2') {
-        console.log(`На '${tasks[i]}' остановлено выполнение цикла`);
-        break;
-    }
-    console.log(tasks[i]);
+// реализация 2
+const resArr2 = [];
+for(let i = 1; i <= arr.length; i++) {
+    resArr2.push(arr[arr.length - i]);
 }
+console.log(resArr2.join(' '));
