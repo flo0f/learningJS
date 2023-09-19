@@ -1,37 +1,10 @@
-/*
-    Дан произвольный url -
-    'https://purpleschool.ru/course/javascript'
-    Нужно сделать функцию, которая выводит в консоль:
-    - Протокол (https)
-    - Доменное имя (purpleschool.ru)
-    - Путь внутри сайта (/course/javascript)
-*/
+// цикл for - утверждение
+// (переменная участвующая в циклах; проверка условия когда завершается цикл; действие с переменной)
 
-const url = 'https://purpleschool.ru/course/javascript';
-/*
-МОЯ РЕАЛИЗАЦИЯ
+// пока условие (...; Х; ...) будет true, цикл будет продолжаться
+// (...; ...; X) после каждой итерации цикла выполняется код Х
 
-function getUrlPart(url) {
-    const [protocol, _, host, ...path] = url.split('/');
-    console.log(`Протокол: ${protocol.slice(0, -1)}.
-Домен: ${host}
-Путь: ${'/' + path.join('/')}`)
+// i++ === i = i + 1 = i += 1
+for(let i = 1; i < 10; i++) {
+    console.log(`i = ${i}`);
 }
-
-*/
-
-// реализация из видео
-function getUrlParts(url) {
-    const [protocol, _, host, ...path] = url.split('/');
-    if (protocol === 'https:' || protocol === 'http:') {
-        if (!host.includes('.')) {
-            return;
-        }
-        console.log(protocol, host, path);
-        console.log(`Протокол: ${protocol.split(':')[0]}`);
-        console.log(`Доменное имя: ${host}`);
-        console.log(`Путь внутри сайта: /${path.join('/')}`);
-    }
-}
-
-getUrlParts(url);
