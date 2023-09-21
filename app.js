@@ -1,28 +1,15 @@
-function add(a, b) {
-    return a + b;
+function power(pow) {
+    return function (num) {
+        return num**pow;
+    }
 }
 
-function subtract(a, b) {
-    return a - b;
-}
+// powerOfTwo является функцией, т.к. функция power вернула в неё анонимную функцию
+const powerOfTwo = power(2);
+console.log(powerOfTwo(2));
+console.log(powerOfTwo(10));
 
-function power(a, b) {
-    return a ** b;
-}
+const powerOfThree = power(3);
+console.log(powerOfThree(5));
 
-// функция высшего порядка
-// функция, которая передается в другую - callback function
-function calculate(a, b, func) {
-    console.log(func.name);
-    const res = func(a, b);
-    return res;
-}
-
-let res = calculate(3, 5, subtract);
-console.log(res);
-
-res = calculate(3, 5, add);
-console.log(res);
-
-res = calculate(3, 5, power);
-console.log(res);
+console.log(power(5)(4));
