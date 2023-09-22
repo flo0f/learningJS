@@ -1,27 +1,22 @@
-// фильтрация данных
-const operations = [100, -20, 7, -20, 50];
+/*
+    Имеется массив изменения цен prices, где внутри
+    1й элемент массива является ценой в момент X,
+    2Й - ценой в момент Y.
+    Нужно преобразовать данные в массив, где будут отображены только положительные изменения цен: [100, 150]
+*/
 
-// // способ через цикл
-// const positiveOperations = [];
-// for (const operation of operations) {
-//     if (operation > 0) {
-//         positiveOperations.push(operation);
-//     }
-// }
-// console.log(positiveOperations);
+const prices = [[100, 200], [120, 100], [200, 350]];
 
-// // способ через метод массива .filter()
-// в filter передаем функцию, если она возвращает true, то элемент остается
-// и сохраняется в новом массиве, иначе элемент удаляется
-// const positiveOperations = operations.filter((operation) => {
-//     return operation > 0;
-// });
-// console.log(positiveOperations);
+// моя реализация
+const positiveChanges = prices
+    .map((pricesEl, i) => (pricesEl[1] - pricesEl[0]))
+    .filter((priceElAfterMap) => priceElAfterMap > 0);
 
-// // чейнинг методов = использование цепи из методов
-const positiveRUBOperations = operations
-    .filter((operation) => {
-        return operation > 0;                   // .filter вернул массив из положительных транзакций
-    })
-    .map((operation) => operation * 90);        // .map использовал массим от .filter и перевел USD в RUB
-console.log(positiveRUBOperations);
+console.log(positiveChanges);
+
+// реализация из ролика
+const result = prices
+    .map(product => product[1] - product[0])
+    .filter(price => price > 0);
+
+console.log(result);
