@@ -27,6 +27,11 @@ console.log('---===---===---===---');
 // score.forEach(iterator);
 
 // вторым аргументом функции можно получить индекс элемента массива
-score.forEach((el, i) => {
-    console.log(`Очки за ${i + 1} раунд: ${el}`)
+// score.forEach((el, i) => {
+//     console.log(`Очки за ${i + 1} раунд: ${el}`)
+// });
+
+// в .forEach() можно передать и третий аргумент, он будет являтся итерируемым массивом
+score.forEach((scoreEl, i, arr) => {
+    console.log(`Очки за ${i + 1} раунд: ${scoreEl}, весь список очков ${arr}`);
 });
