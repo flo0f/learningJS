@@ -1,22 +1,32 @@
-// function power(pow) {
-//     return function (num) {
-//         return num**pow;
-//     }
+
+const score = [5, 10, 0, 15];
+
+// обычный способ итерации по массиву
+for (const el of score) {
+    console.log(`Очки за ${score.indexOf(el) + 1} раунд: ${el}`);
+}
+// метод .entries возвращает индекс и сам элемент
+for (const [i, el] of score.entries()) {
+    console.log(`Раунд ${i + 1}: ${el}`);
+}
+console.log('---===---===---===---');
+// метод forEach
+// X.forEach() принимает функцию, которая будет применена к каждому элементу массива X
+
+// score.forEach(function (el) {
+//     console.log(`Очки ${el}`)   // с анонимной функцией
+// })
+
+// score.forEach((el) => {
+//     console.log(`Очки ${el}`)  // со стрелочной функцией
+// })
+
+// const iterator = (el) => {
+//     console.log(`Очки ${el}`);   // с отдельно вынесенной функцией
 // }
+// score.forEach(iterator);
 
-// стрелочная функция power
-const power = (pow) => function(num) {return num**pow};
-
-// реализация из урока
-// const power = pow => num => num**pow;
-
-// powerOfTwo является функцией, т.к. функция power вернула в неё анонимную функцию
-const powerOfTwo = power(2);
-console.log(powerOfTwo(2));
-console.log(powerOfTwo(10));
-
-const powerOfThree = power(3);
-console.log(powerOfThree(5));
-
-console.log(power(5)(4));
-
+// вторым аргументом функции можно получить индекс элемента массива
+score.forEach((el, i) => {
+    console.log(`Очки за ${i + 1} раунд: ${el}`)
+});
