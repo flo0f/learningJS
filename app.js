@@ -1,21 +1,27 @@
-const transactionsInUSD = [10, -7, 50, -10, 100];
-// процедурный стиль написания
-const transactionsInRUB = [];
-for (const transactions of transactionsInUSD) {
-    transactionsInRUB.push(transactions * 60);
-}
+// фильтрация данных
+const operations = [100, -20, 7, -20, 50];
 
-console.log(transactionsInRUB);
-console.log(transactionsInUSD);
+// // способ через цикл
+// const positiveOperations = [];
+// for (const operation of operations) {
+//     if (operation > 0) {
+//         positiveOperations.push(operation);
+//     }
+// }
+// console.log(positiveOperations);
 
-// функциональный стиль
-// .map() принимает в аргументы то же, что и .forEach(), а именно
-// .map(callbackFn (value, index, array))
-// .map() в отличии от forEach возвращает массив с элементами исходного к которым применена функция из (...) map'a
-const transactionsInRUB2 = transactionsInUSD
-    .map((transactions) => transactions * 60); // методы можно переносить
-console.log('---===---===---===---');
-console.log(transactionsInRUB2);
-console.log(transactionsInUSD);
+// // способ через метод массива .filter()
+// в filter передаем функцию, если она возвращает true, то элемент остается
+// и сохраняется в новом массиве, иначе элемент удаляется
+// const positiveOperations = operations.filter((operation) => {
+//     return operation > 0;
+// });
+// console.log(positiveOperations);
 
-
+// // чейнинг методов = использование цепи из методов
+const positiveRUBOperations = operations
+    .filter((operation) => {
+        return operation > 0;                   // .filter вернул массив из положительных транзакций
+    })
+    .map((operation) => operation * 90);        // .map использовал массим от .filter и перевел USD в RUB
+console.log(positiveRUBOperations);
