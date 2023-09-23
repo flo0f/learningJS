@@ -1,22 +1,21 @@
-const arr = [2, 4, 4, 10];
+/*
+    Написать функцию, которая возвращает true,
+    если элемент есть, и false, если нет.
+*/
+const arr = [2, 4, 4, 10, 20];
 
-
-let elGT5;
-// // обычный способ
-// for (const el of arr) {
-//     if (el > 5) {
-//         elGT5 = el;
-//         break;
-//     }
+// // моя реализация
+// function some(elToFind, array) {
+//     return array.findIndex(el => el === elToFind) < 0 ? false : true;
 // }
-// console.log(elGT5);
+// console.log(some(5, arr));
 
-// через метод .find()
-// .find() ищет первый элемент массива удовлетворяющий условию
-elGT5 = arr.find(el => el > 5);
-console.log(elGT5);
+// // реализация из видео
+// function some(array, element) {
+//     const res = array.find(el => el === element);
+//     return res == undefined ? false : true;
+// }
+// console.log(some(arr, 2))
 
-// .findIndex() ищет индекс первого элемента массива который удовлетворяет условию
-let elGT5Index = arr.findIndex(el => el > 5);
-console.log(elGT5Index);
-// если в массиве нет элемента удовлетворяющего условию, то .findIndex() вернёт -1
+// метод .some()
+console.log(arr.some(el => el === 2))
