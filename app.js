@@ -1,44 +1,20 @@
-const users = ['Вася', 'Маша', 'Катя', 'Аня'];
-console.log(users);
+const arr = [1, 2, 3, 4, 5];
 
-// при .sort() массив модифицируется, а .map и .filter возвращают новый массив
-// .sort() без аргументов сортирует по алфавиту как строки
-users.sort();
-console.log(users);
+// другие способы создания массива
+console.log(new Array(1, 2, 3, 4, 5));
 
-// тут произойдет сортировка КАК СТРОК, т.е. сначала символы, потом цифры по возрастанию
-// поэтому сначала будет идти -100, а потом -300
-const operations = [100, -300, -100, 50, 480];
-console.log(operations);
-operations.sort();
-console.log(operations);
+// создание пустого массива состоящего из X элементов Array(X);
+const arr2 = new Array(5);
+console.log(arr2);
+console.log(arr2.map((el) => el + 1)); // ничего не произойдет т.к. перед действиями с массивом его надо заполнить
 
-// X < 0 - a, b - если вернем, что-то меньше нуля, то порядок сохранен
-// X > 0 - b, a - меняем порядок
+// метод .fill() для заполнения массива
+// arr2.fill(1); заполнить весь массив значением 1
+arr2.fill(1, 0, 3); // заполнить ячейки с 0 до 3 значением 1
+arr2.fill(2, 3, 5);
+console.log(arr2);
 
-// сортировка по возрастанию
-operations.sort((a, b) => {
-    if (a > b) {
-        return 1;
-    } 
-    if (a < b) {
-        return -1;
-    }
-});
-console.log(operations);
-
-// сортировка по убыванию
-operations.sort((a, b) => {
-    if (a < b) {
-        return 1;
-    } 
-    if (a > b) {
-        return -1;
-    }
-});
-console.log(operations);
-
-// самая краткая запись сортировки по возрастанию
-console.log('---===---===---===---');
-operations.sort((a, b) => a - b); // a - b = <0 - сохраняем порядок
-console.log(operations);          // a - b = >0 - меняем порядок
+// что если нужно создать массив от N до M?
+// нужен метод .from({объект}, анонимнаяФункция)
+const arr3 = Array.from({ length: 5}, (cur, i) => i + 1);
+console.log(arr3)
