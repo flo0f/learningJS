@@ -1,25 +1,22 @@
-/*
-    Найти среднее значение последовательности
-    чисел с помощью reduce
-*/
 const arr = [2, 4, 4, 10];
 
-// // моя реализация
-// const avgArr = arr.reduce((prev, current, i) => {
-//     if (arr[arr.length - 1] == current) {
-//         return (prev + current) / arr.length;
-//     } else {
-//         return prev + current
-//     }
-// }, 0);
-// console.log(avgArr);
 
-// реализация из видео 
-const avg = arr.reduce((acc, el, i) => {
-    if (i != arr.length - 1) {
-        return acc + el;
-    } else {
-        return (acc + el) / arr.length;
-    }
-}, 0);
-console.log(avg);
+let elGT5;
+// // обычный способ
+// for (const el of arr) {
+//     if (el > 5) {
+//         elGT5 = el;
+//         break;
+//     }
+// }
+// console.log(elGT5);
+
+// через метод .find()
+// .find() ищет первый элемент массива удовлетворяющий условию
+elGT5 = arr.find(el => el > 5);
+console.log(elGT5);
+
+// .findIndex() ищет индекс первого элемента массива который удовлетворяет условию
+let elGT5Index = arr.findIndex(el => el > 5);
+console.log(elGT5Index);
+// если в массиве нет элемента удовлетворяющего условию, то .findIndex() вернёт -1
