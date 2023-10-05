@@ -1,8 +1,5 @@
-const userName = 'Вася Пупкин';
-// разбиение строки на массив
-const arr = userName.split(' ');
-console.log(arr);
-// объединение массива в строку
-const arr2 = ['Привет', 'Мир!'];
-const helloWorld = arr2.join(', ');
-console.log(helloWorld);
+const film = 'Звездные Воины';
+console.log(film.padStart(30, '*')); // добавляет звездочки в начало строки до длины 30
+console.log(film.padEnd(30, '*')); // добавляет звездочки в конец строки до длины 30
+
+console.log(film.repeat(10)); // повторяет строку 10 раз
