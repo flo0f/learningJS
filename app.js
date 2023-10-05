@@ -1,16 +1,10 @@
-const userName = "Вася Пупкина";
-// обращение к определенным символам по индексу
-// эмодзи в строке занимают два индекса
-console.log(userName[0]);
-console.log(userName.charAt(0));
+/* вытащить имя и фамилию в отдельные переменные */
+const userName = 'Вася aka Terminator Пупкин';
+const firstName = userName.slice(0, 4);
+const surname = userName.slice(-6);
+console.log(firstName, surname);
 
-// получение длины строки
-console.log(userName.length);
-
-// поиск в строке
-console.log(userName.indexOf('а')); // первое вхождение символа
-console.log(userName.lastIndexOf('а')); // последнее вхождение символа
-console.log(userName.includes('Вася'));
-
-// получение части строки
-console.log(userName.slice(5, 8));
+// реализация из урока
+const firstName1 = userName.slice(0, userName.indexOf(' '));
+const surname1 = userName.slice(userName.lastIndexOf(' ') + 1, userName.length);
+console.log(firstName1, surname1);
