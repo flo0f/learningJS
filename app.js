@@ -1,20 +1,16 @@
-const arr = [1, 2, 3, 4, 5];
+const userName = "Вася Пупкина";
+// обращение к определенным символам по индексу
+// эмодзи в строке занимают два индекса
+console.log(userName[0]);
+console.log(userName.charAt(0));
 
-// другие способы создания массива
-console.log(new Array(1, 2, 3, 4, 5));
+// получение длины строки
+console.log(userName.length);
 
-// создание пустого массива состоящего из X элементов Array(X);
-const arr2 = new Array(5);
-console.log(arr2);
-console.log(arr2.map((el) => el + 1)); // ничего не произойдет т.к. перед действиями с массивом его надо заполнить
+// поиск в строке
+console.log(userName.indexOf('а')); // первое вхождение символа
+console.log(userName.lastIndexOf('а')); // последнее вхождение символа
+console.log(userName.includes('Вася'));
 
-// метод .fill() для заполнения массива
-// arr2.fill(1); заполнить весь массив значением 1
-arr2.fill(1, 0, 3); // заполнить ячейки с 0 до 3 значением 1
-arr2.fill(2, 3, 5);
-console.log(arr2);
-
-// что если нужно создать массив от N до M?
-// нужен метод .from({объект}, анонимнаяФункция)
-const arr3 = Array.from({ length: 5}, (cur, i) => i + 1);
-console.log(arr3)
+// получение части строки
+console.log(userName.slice(5, 8));
