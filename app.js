@@ -1,21 +1,17 @@
 const cities = {
     msk: {
-        temp: 25
+        temp: {
+            celsius: 25
+        }
     },
     spb: {
-        temp: 20
+
     }
 };
-
-let sumTemp = 0;
-let citiesCount = Object.keys(cities).length;
-for (const key in cities) {
-    console.log(key);
-    sumTemp += cities[key].temp;
+const city = 'spb';
+if (cities[city] != undefined && cities[city].temp != undefined) {
+    console.log(cities[city].temp.celsius);
 };
-console.log(sumTemp / citiesCount);
-
-// альтернативный способ итерации по ключам объекта
-for (const key of Object.keys(cities)) {
-    console.log(key);
-}
+console.log(cities[city]?.temp?.celsius);
+// [city]?. такой город есть? - если да -> дальше, если нет -> undefined
+// temp?. температура есть? - если да -> дальше, если нет -> undefined
