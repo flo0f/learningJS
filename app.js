@@ -1,56 +1,17 @@
-/*
-	Сделать объект склад с методами добавления на склад, поиска
-	по складку товара и расчёт веса
-*/
-const warehouse = {
-    goods: [],
-    findGoodById: function (goodId) {
-        return this.goods.find(g => g.id == goodId);
-        },
-    addGood: function (good) {
-        const existedGood = this.findGoodById(good.id);
-        if (existedGood) {
-            return 'Товар уже существет';
-        }
-        this['goods'].push(good);
-        return 'Товар успешно добавлен';
-    },
-    getWeightKg: function () {
-        return this.goods.reduce((acc, el) => {
-            current = el.weight?.kg;
-            if (current != undefined) {
-                acc += current;
-            } else {
-                acc += 0
-            };
-            return acc;
-        }, 0)
+ 'use strict';
+ let myCoolVariable = 1;
+ 
+ if (true) {
+    myCoolVariable = 3; // при ошибке в названии переменной при ее использовании в strict mode будет ошибка
+ }                      // когда в обычном режиме ошибки не будет, а будет создана новая переменная
+ console.log(myCoolVariable);
+
+ if (true) {
+    function a() {
+        console.log('hello world!');
     }
-};
+ }
+ // a(); // в strict mode это выдаст ошибку т.к. функция a() относится к блоку if()
 
-/* товары */
-const car = {
-    id: 1,
-    weight: {
-        kg: 1000
-    },
-    brand: 'Ford'
-};
-const chair = {
-    id: 2,
-    weight: {
-        kg: 2
-    }
-};
-const paper = {
-	id: 3,
-	color: 'red'
-};
-
-console.log(warehouse.addGood(car));
-console.log(warehouse.addGood(car));
-console.log(warehouse.addGood(chair));
-console.log(warehouse.addGood(paper));
-
-console.log(warehouse.findGoodById(2));
-console.log(warehouse.getWeightKg());
+ // const interface = 8; такое имя невозможно в strict mode несмотря на то, что пока что в JS нет такого слова
+ // т.е. подразумевается, что возможно в будущем будет добавлено это слово для функционала JS и в таком случае это создаст ошибку
