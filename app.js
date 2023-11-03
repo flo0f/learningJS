@@ -1,17 +1,27 @@
- 'use strict';
- let myCoolVariable = 1;
- 
- if (true) {
-    myCoolVariable = 3; // при ошибке в названии переменной при ее использовании в strict mode будет ошибка
- }                      // когда в обычном режиме ошибки не будет, а будет создана новая переменная
- console.log(myCoolVariable);
+'use strict'
 
- if (true) {
-    function a() {
-        console.log('hello world!');
-    }
- }
- // a(); // в strict mode это выдаст ошибку т.к. функция a() относится к блоку if()
+let successMessage = 'Успех';
+const user = {
+   name: 'вася',
+   roles: []
+};
 
- // const interface = 8; такое имя невозможно в strict mode несмотря на то, что пока что в JS нет такого слова
- // т.е. подразумевается, что возможно в будущем будет добавлено это слово для функционала JS и в таком случае это создаст ошибку
+function addRole(user, role) {
+   if (role == 'admin') {
+      const message = 'Ошибка';
+      console.log(message);
+      return user;
+   }
+   user.roles.push(role);
+   let successMessage = 'Успешно!';
+   console.log(successMessage);
+
+   function logRoles() {
+      console.log(user.roles);
+   }
+   logRoles();
+   return user;
+};
+
+console.log(addRole(user, 'mod'));
+console.log(successMessage);
