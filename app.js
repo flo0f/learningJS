@@ -1,27 +1,26 @@
-'use strict'
+'use strict';
 
-let successMessage = 'Успех';
 const user = {
-   name: 'вася',
-   roles: []
+   firstName: 'Vasya',
+   lastName: 'Pupkin',
+   age: 20,
+   getUserInfo: function() {
+      console.log(`${this.firstName} ${this.lastName}`)
+
+      const heIs18 = () => {
+         if (this.age > 18) {
+            console.log('Can drink');     // heIs18 не относится ни к какому объекту, соответственно
+         } else {                         // её this будет равен undefined
+            console.log('Cant drink')
+         }
+      }
+      heIs18();
+   },
+   getUserInfoArrow: () => {
+      console.log(this); // мы получим this глобального scope, т.е. window
+      console.log(`${this.firstName} ${this.lastName}`)
+   }
 };
 
-function addRole(user, role) {
-   if (role == 'admin') {
-      const message = 'Ошибка';
-      console.log(message);
-      return user;
-   }
-   user.roles.push(role);
-   let successMessage = 'Успешно!';
-   console.log(successMessage);
-
-   function logRoles() {
-      console.log(user.roles);
-   }
-   logRoles();
-   return user;
-};
-
-console.log(addRole(user, 'mod'));
-console.log(successMessage);
+user.getUserInfo();
+user.getUserInfoArrow();
