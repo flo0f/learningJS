@@ -1,26 +1,16 @@
 'use strict';
 
-const user = {
-   firstName: 'Vasya',
-   lastName: 'Pupkin',
-   age: 20,
-   getUserInfo: function() {
-      console.log(`${this.firstName} ${this.lastName}`)
+// let, var, const, function, arguments
+// Scope chain
+// this
 
-      const heIs18 = () => {
-         if (this.age > 18) {
-            console.log('Can drink');     // heIs18 не относится ни к какому объекту, соответственно
-         } else {                         // её this будет равен undefined
-            console.log('Cant drink')
-         }
-      }
-      heIs18();
-   },
-   getUserInfoArrow: () => {
-      console.log(this); // мы получим this глобального scope, т.е. window
-      console.log(`${this.firstName} ${this.lastName}`)
-   }
+function summa(n1, n2) {
+   console.log(arguments);
+   console.log(this);
+   return n1 + n2;
 };
 
-user.getUserInfo();
-user.getUserInfoArrow();
+console.log(summa(1, 3, 6, 7, 3));
+
+// arguments - спец. объект который выдает ВСЕ аргументы переданные в функцию
+// В СТРЕЛОЧНОЙ ФУНКЦИИ arguments НЕ РАБОТАЕТ!
