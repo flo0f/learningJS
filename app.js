@@ -1,16 +1,32 @@
-'use strict';
+/* 
+   дополнить объект методами для получения имени:
+   - компании
+   - сео
+   - сотрудника
+*/
 
-// let, var, const, function, arguments
-// Scope chain
-// this
-
-function summa(n1, n2) {
-   console.log(arguments);
-   console.log(this);
-   return n1 + n2;
+const company = {
+   name: 'ООО Агро',
+   employees: [
+      {
+         name: 'Света',
+         getEmployeeName: function() {
+            console.log(this.name);
+         }
+      }
+   ],
+   ceo: {
+      name: 'Вася',
+      getCeoName: function() {
+         console.log(this.name);
+      }
+   },
+   getCoName: function() {
+      console.log(this.name);
+   }
 };
 
-console.log(summa(1, 3, 6, 7, 3));
+company.getCoName();
+company.ceo.getCeoName();
+company.employees.map(employee => employee.getEmployeeName())
 
-// arguments - спец. объект который выдает ВСЕ аргументы переданные в функцию
-// В СТРЕЛОЧНОЙ ФУНКЦИИ arguments НЕ РАБОТАЕТ!
