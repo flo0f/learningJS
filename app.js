@@ -1,25 +1,13 @@
 'use strict';
-/*
-   Создайте объект пользователя с паролем.
-   С помощью функции ниже удалить пароль сделав
-   функцию сброса пароля
-*/
+// IIFE - Immediately invoked Function Expression
+// это JS функция, которая выполняется сразщу же после того, как она была определена
 
-function removePassword(reset) {
-   if (reset) {
-      this.password = undefined;
-   } else {
-      this.password = '1';
-   }
+function init () {
+   console.log('Start');
 };
+init();
+init();
 
-let user = {
-   userName: 'Nagibator1337',
-   password: 'helloWorld'
-};
-
-const removePasswordNagibator = removePassword.bind(user, true);
-removePasswordNagibator();
-
-console.log(user);
-
+(function() {
+   console.log('Start IIFE');
+})();
