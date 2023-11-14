@@ -1,23 +1,25 @@
 'use strict';
+/*
+   Создайте объект пользователя с паролем.
+   С помощью функции ниже удалить пароль сделав
+   функцию сброса пароля
+*/
 
-const audi = {
-   make: 'Audi',
-   model: 'Q3',
-   damages: []
-};
-
-const carManipulation = {
-   addDamage(part, rate) {
-      this.damages.push({ part, rate });
-      console.log(`Добавили повреждение на ${this.make} ${this.model}`);
+function removePassword(reset) {
+   if (reset) {
+      this.password = undefined;
+   } else {
+      this.password = '1';
    }
 };
 
-// bind
-const addDamageAudi = carManipulation.addDamage.bind(audi);
-addDamageAudi('bumper', 69);
+let user = {
+   userName: 'Nagibator1337',
+   password: 'helloWorld'
+};
 
-const addDamageAudiRoof = carManipulation.addDamage.bind(audi, 'Roof');
-addDamageAudiRoof(5);
+const removePasswordNagibator = removePassword.bind(user, true);
+removePasswordNagibator();
 
-console.log(audi.damages);
+console.log(user);
+
