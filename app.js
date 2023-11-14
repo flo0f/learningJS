@@ -1,13 +1,20 @@
 'use strict';
-// IIFE - Immediately invoked Function Expression
-// это JS функция, которая выполняется сразщу же после того, как она была определена
 
-function init () {
-   console.log('Start');
+function changeBalance() {
+   let balance = 0;
+   return function(sum) {
+      balance += sum;
+      console.log(`Баланс: ${balance}`);
+   }
 };
-init();
-init();
+const change = changeBalance(); // balance для этой функции равен нулю
+change(10); // balance += 10 => balance = 10
+change(10); // balance += 10 => balance = 20
+change(10); // balance += 10 => balance = 30
 
-(function() {
-   console.log('Start IIFE');
-})();
+const change2 = changeBalance(); // balance для этой функции равен нулю
+change2(5); // balance += 5 => balance = 5
+change2(5); // balance += 5 => balance = 10
+change2(5); // balance += 5 => balance = 15
+
+console.dir(change);
